@@ -25,8 +25,8 @@ from netmiko import (
 #ssh.exit_enable_mode()
 #df=pd.DataFrame.to_string(eval(data1))
 #df = df['data1'].apply(str)
-data1 = pd.read_table('vpn.txt', encoding='cp1251', sep='S+', )
-print (data1)
+#data1 = pd.read_table('vpn.txt', encoding='cp1251', sep='S+', )
+#print (data1)
 
 #print(result1)
 

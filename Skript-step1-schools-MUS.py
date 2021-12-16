@@ -10,7 +10,7 @@ text1 = ''
 text2 = ''
 text3 = ''
 
-data = pd.read_csv('my_text1.csv', encoding='cp1251', sep=',', skiprows=2, usecols=['kshwan', 'vlanvar'], dtype={'vlanvar': 'object'})
+data = pd.read_csv('lotosh.csv', encoding='cp1251', sep=',', skiprows=2, usecols=['kshwan', 'vlanvar'], dtype={'vlanvar': 'object'})
 
 df = pd.DataFrame(data)
 
@@ -20,14 +20,16 @@ try:
 
     ip = df.kshwan[m]
     i2 = df.vlanvar[m]
-    ip1 = int(ipaddress.ip_address(ip)) - 2
+    ip1 = int(ipaddress.ip_address(ip)) - 3
+    ip2 = int(ipaddress.ip_address(ip)) - 2
     i1 = str(ipaddress.ip_address(ip1))
+    i3 = str(ipaddress.ip_address(ip2))
 
 
     text1 = text1 + (
-        f'\n\n\ninterface eth-trunk0.{i2} \n vlan-type dot1q {i2} \n description "mo-oo-region" \n ip binding vpn-instance mo-oo-region \n ip address {i1} 29')
+        f'\n\n\ninterface eth-trunk0.{i2} \n vlan-type dot1q {i2} \n description "mo-oo-region" \n ip binding vpn-instance mo-oo-region \n ip address {i3} 29')
     text2 = text2 + (
-        f'\n\n\ninterface GigabitEthernet0/3/43.{i2} \n vlan-type dot1q {i2} \n description "mo-oo-region" \n ip binding vpn-instance mo-oo-region \n ip address {i1} 29')
+        f'\n\n\ninterface GigabitEthernet0/3/43.{i2} \n vlan-type dot1q {i2} \n description "mo-oo-region" \n ip binding vpn-instance mo-oo-region \n ip address {i3} 29')
     text3 = text3 + (f'\n network {i1} 29')
 except KeyError:
     print("ready")

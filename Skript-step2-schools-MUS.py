@@ -13,7 +13,7 @@ text3 = ''
 text4 = ''
 text5 = ''
 
-data = pd.read_csv('my_text1.csv', encoding='cp1251', sep=',', skiprows=2, usecols=['vlanvar1', 'vlanvar2', 'vargw', 'oc', 'warnet'], dtype={'vlanvar2': 'object'})
+data = pd.read_csv('losino.csv', encoding='cp1251', sep=',', skiprows=2, usecols=['vlanvar1', 'vlanvar2', 'vargw', 'oc', 'warnet'], dtype={'vlanvar2': 'object'})
 
 df = pd.DataFrame(data)
 
